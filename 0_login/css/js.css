@@ -1,0 +1,14 @@
+@charset "UTF-8";
+#wrap  .show{
+  visibility: inherit;
+  display: block !important;
+}
+.purple{
+  background-color: rgb(211, 137, 241) !important;
+}
+.purple--reverse{
+  background-color: rgb(229, 191, 245) !important;
+}
+.textdeco{
+  text-decoration: line-through;
+}

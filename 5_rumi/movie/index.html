@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>찐해::영화 정보</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="./img/favicon.png" />
+
+  <!--테일윈드 다크모드 적용-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="./js/darkmode.js"></script>
+  <script> 
+    tailwind.config = {
+      content: [
+        "./public/index.html",
+      ],
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            nanum: ['Nanum Gothic']
+          }
+        }
+      }
+    }
+  </script>
+  <script defer type="module" src="./main.js"></script>
+</head>
+<body>
+  <div class="container" style="max-width: 100%;">
+    <div class="container-lt">
+      <article class="flex flex-col min-h-screen dark:bg-[#282C34]">
+        <div class="header dark:border-b-[#282C34]">
+          <div class="div-lt"></div>
+          <div class="logo" style="color: red;">찐한 movie</div>
+          <div class="div-lt">
+            <!--다크모드-->
+            <div class="flex">
+              <div>
+                <div>
+                  <div class="change_direction">
+                    <input type="checkbox" id="checkbox" class="hidden" />
+                    <label for="checkbox" class="cursor-pointer">
+                      <img class="change_d_l" src="./img/sun.png" alt="다크모드 적용">
+                      <i></i>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="main">
+          <div class="card-container">
+            <div class="card-container__popular">
+              <h2 class="card-title dark:text-[#ff6347]">추천영화</h2>
+              <ul class="card-list">
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+              </ul>
+            </div>
+            <div class="card-container__comingsoon">
+              <h2 class="card-title dark:text-[#ff6347]">개봉예정</h2>
+              <ul class="card-list">
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+                <li>
+                  <div class="poster"></div>
+                  <h3 class="poster-title dark:text-white">찐한 movie</h3>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="container-rt">
+      <!-- 자식 요소 안에 자식을 하나 더 둬서 블러처리함 -->
+      <div class="container-rt-child">
+        <div class="container-rt-blur">
+          <div class="rt-poster-container">
+            <div class="rt-poster"></div>
+            <div class="rt-poster-detail">
+              <div class="rt-poster-detail__title">
+                <p>찐한 movie</p>
+              </div>
+              <div class="rt-poster-detail__description">
+                <p>
+                  여자 찐과 남자 해의 천생연분이 만난 찐한 이야기💕
+                  무슨 영화가 인기가 있고 상영이 예정되어 있는 영화도 함께 알아볼까요?
+                </p>
+              </div>
+              <div class="rt-poster-detail-plus">
+                <div class="rt-poster-detail-plus__star">
+                  <i class="fa-solid fa-star fa-xs"></i> 10/10
+                </div>
+                <div class="rt-poster-detail-plus__distribution">
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </article>
+  </div>
+</body>
+</html>

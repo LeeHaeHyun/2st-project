@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>찐해:한 줄 소개</title>
+        <script
+            src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    </head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&family=Song+Myung&display=swap");
+
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background: #ffcaab;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        .title {
+            text-align: center;
+            margin: 100px auto;
+        }
+        .wrap {
+            margin: 50px auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+        .box1,
+        .box2 {
+            width: 400px;
+            height: 350px;
+            background: #fff;
+            padding: 20px 0;
+            position: relative;
+        }
+        .heart {
+            width: 100px;
+            margin-top: 150px;
+            font-family: "Song Myung", serif;
+            font-size: 55px;
+        }
+        .mini_box1,
+        .mini_box2 {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 350px;
+            height: 300px;
+            display: none;
+        }
+        .mini_box1 h3,
+        .mini_box2 h3 {
+            margin-top: 100px;
+            color: #fff;
+            font-size: 30px;
+        }
+        .mini_box1 p,
+        .mini_box2 p {
+            color: #fff;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            padding: 40px 0;
+            width: 100%;
+            background: #785243;
+            text-align: center;
+            color: #fff;
+        }
+        footer p:first-child {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        footer p:last-child {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        .mini_box1.on,
+        .mini_box2.on {
+            display: block;
+        }
+
+        @media (max-width: 390px) {
+            .wrap {
+                display: block;
+            }
+            .title {
+                margin: 50px;
+            }
+            .box1,
+            .box2 {
+                width: 80%;
+                height: 80%;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .box1 img,
+            .box2 img {
+                width: 100%;
+            }
+            .heart {
+                width: 100%;
+                margin: 50px auto;
+                font-size: 30px;
+            }
+            .mini_box1,
+            .mini_box2 {
+                width: 90%;
+                top: 15px;
+                left: 15px;
+                height: 90%;
+            }
+
+            footer {
+                position: relative;
+            }
+            footer p:first-child {
+                font-size: 20px;
+            }
+            footer p:last-child {
+                font-size: 15px;
+            }
+        }
+    </style>
+
+    <body>
+        <script>
+            var randomProperty1 = function (line1) {
+                var keys = Object.keys(line1);
+                return line1[keys[Math.floor(keys.length * Math.random())]];
+                // return lines[keys[keys.length * Math.random() << 0]];
+            };
+            // document.write(randomProperty(lines)+"<br>");
+
+            var randomProperty2 = function (line2) {
+                var keys = Object.keys(line2);
+                return line2[keys[Math.floor(keys.length * Math.random())]];
+                // return lines[keys[keys.length * Math.random() << 0]];
+            };
+            // document.write(randomProperty(lines)+"<br>");
+
+            var line2 = {
+                1: "이해현의 뜻은 바다처럼 넓은 뜻을 품고 살라는 의미야!",
+                2: "내 꿈은 IT기업 CEO, 대한민국을 움직이는 사람이 되고 싶어.",
+                3: "난 심심해본 적이 없지만, 집안일 마치면 컴퓨터가 그 자체 일상이야.",
+                4: "평일에는 잠을 잘 안자고 주말에 몰아서 자는 편.",
+                5: "여자 가수는 에스파를 좋아하고 남자 가수는 임재범을 좋아해!",
+                6: "배우는 이병헌과 김남길, 좋더라..",
+                7: "인생 드라마는 선덕여왕! 엄청난 명작이지!",
+                8: "좋아하는 음식은 고기, 갈비 등 쫄깃하고 부드러운 음식 좋아!",
+                9: "싫어하는 음식은 가지.. 시레기.. 호박볶음..",
+                10: "이상형은 날씬하고 여성스럽고 마음이 따뜻하고 착한 여자!",
+                11: "가장 다정하게 대해준 사람이 기억에 오래 남더라..",
+                12: "요즘 해외여행이 너무나도 가고 싶어..!!",
+                13: "버릇은 손톱 물어뜯기.. 매일 샤워하기..",
+                14: "취미는 유튜브 영상 시청과 편집 그리고 음악 듣기!",
+                15: "특기는 분석하기 못하는 건 공감하기ㅠㅠ",
+                16: "좋아하는 계절은 가을이야, 나랑 가장 잘 어울리는 계절",
+                17: "나는 부엉이 인간이라고 들었을 정도로 밤과 새벽이 가장 활발해!",
+                18: "ASMR 유튜버, 조야TV, 배돈, 보따, 박도지 유튜버를 제일 많이 봐",
+                19: "네이비 색깔을 제일 좋아해!",
+                20: "딸기가 내 인생 가장 좋아하는 과일이야!",
+                21: "내 성격은 야망이 크고 본성과 다르게 의지는 착한 성격",
+                22: "잠 안 올 때는 주로 ASMR을 들어~ 진짜 좋아!",
+                23: "좋아하는 라면은 짜파게티랑 불닭볶음면이야",
+                24: "난 쌓이는 걸 못 보는 성격이라서 하루 이내 보자마자 답장을 꼭 해야 하는 성격",
+                25: "아침식사는 절대 안먹는 편이야~ 피곤해서 소화도 잘 안되더라..",
+                26: "낯가림은 전혀 없어. 외향적인 사람이라..",
+                27: "매운 음식은 잘 못 먹고.. 좋아하지도 않아.",
+                28: "노래방 가면 한동근 그대라는 사치를 항상 부르는 편이더라.",
+                29: "나는 주변 사람의 기분이 안좋은 것 & 번지점프가 제일 무서워..",
+                30: "민트초코는 안 좋아해.. 차라리 초코를 더 먹는 걸 좋아하는 편이야",
+                31: "초코 광팬이야! 초코없으면 못 살 정도..?",
+                32: "전화보다 문자가 난 좋아, 언제든지 확인할 수 있으니까!",
+                33: "스트레스 해소할 땐 야한 생각하기..?",
+                34: "카메라 어플은 스노우를 많이 쓰는 편이지~",
+                35: "내가 가진 가장 비싼 물건은 캐논 카메라..ㅠ",
+                36: "나한테 애기때부터 쓰고 있는 이불이 가장 오래되었어",
+                37: "좋아하는 옷 브랜드는 하이버, 무신사, 에이블리~",
+                38: "나는 사실을 중요시하고 넓은 생각과 깊은 사고를 하며 살아가는 사람으로 소개할 수 있겠다!",
+                39: "물냉면과 비빔냉면 중에서는 물냉면이 짱이지!",
+                40: "가장 좋아하는 영화는 로맨스, 19금 영화..",
+                41: "내 별명은 큰대가리, 어리버리",
+                42: "발 사이즈는 275~280 사이즈를 항상 신는 편이야!",
+                43: "요즘 안마의자가 가지고 싶더라..ㅎㅎ",
+                44: "결혼하고 싶은 나이는 35살 정도에 결혼하고 싶어",
+                45: "꽃은 튤립이 제일 예쁘더라~!",
+                46: "친구가 약속에 1시간 이상 늦는다면 다음에 보자고 집으로 갈 거 같아!",
+                47: "가장 좋아하는 동물은 고양이와 다람쥐가 귀여워서 좋아!",
+                48: "내 기억중 아기 돌 때 어른들이 물건을 하나 집으라고 하는데 욕심이 많아서 몽땅 집은 게 기억나",
+                49: "끔찍한 기억은 학창시절 성적이 안 좋아서 학교에서도 맞고 집에서도 많이 맞은 것..ㅠㅠ",
+                50: "주량은 소주 1병 이하..",
+                51: "내 TMI는 여유증이 있다, 의외로 많이 소심하다, 부정적인 상황에서 극도로 긴장하고 불안함을 느낀다",
+                52: "결혼한다면 신혼여행지는 몰디브, 발리로 가고 싶네~",
+                53: "내가 사랑을 표현하는 방법은 사랑한다고 말하는 것! 명료하면서 간단하지?",
+                54: "연애하면서 부드럽고 편하게 항상 긍정적으로 생각했음 좋겠어. 안그럼 마음이 아파",
+                55: "연애는 30년간 모태솔로였는데 나에겐 첫 연애야!",
+                56: "성격이 엄청 급하고 완벽주의자 특징이 있지 Mbti의 N답게 예민하고..",
+                57: "상상력이 많은 편이라서 종종 공감 안되는 뇌절을 하는 편이야!"
+            };
+
+            var line1 = {
+                1: "샘플입니다."
+            };
+
+            function btn1() {
+                var audio = new Audio("/1_main/img/katalk.mp3");
+                audio.play();
+                swal(randomProperty1(line1));
+            }
+
+            function btn2() {
+                var audio = new Audio("/1_main/img/katalk.mp3");
+                audio.play();
+                swal(randomProperty2(line2));
+            }
+        </script>
+
+        <h1 class="title" style="font-size: 35px; text-align: center">🌈우리는 찐해 커플(❁´◡`❁)</h1>
+        <div class="wrap">
+            <div class="box1">
+                <a onclick="btn1()">
+                    <figure>
+                        <img src="../sogae/img/jin.png" alt="" style="width: 400px height=350px" /> 
+                    </figure>
+                        <div class="mini_box1">
+                            <h3>[女] 샘플입니다.</h3>
+                            <p>"샘플입니다."</p></a>
+                        </div>          
+                 </a>
+            </div>
+            <div class="heart">
+                <p>💕</p>
+            </div>
+            <div class="box2">
+                <a onclick="btn2()">
+                    <figure>
+                        <img src="../sogae/img/hyun.jpg" alt="" style="width: 10% height=10%" />
+                    </figure>
+                    <div class="mini_box2">
+                        <h3>[男] 이해현(1993.10.09)</h3>
+                        <p>"단 한번 사는 인생, 흘러가는대로 하지만 혼신은 다하자!</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <p>천생연분이 만난<br />찐한 이야기💕</p>
+            <p><a> &copy; kama_code 이해현 </a></p>
+        </footer>
+
+        <script>
+            $(function () {
+                let box1 = $(".box1");
+                let box2 = $(".box2");
+                let mini_box1 = $(".mini_box1");
+                let mini_box2 = $(".mini_box2");
+
+                $(box1)
+                    .on("mouseover", function () {
+                        $(".mini_box1").stop().fadeIn(100);
+                    })
+                    .on("mouseleave", function () {
+                        $(".mini_box1").stop().fadeOut(100);
+                    });
+
+                $(box2)
+                    .on("mouseover", function () {
+                        $(".mini_box2").stop().fadeIn(100);
+                    })
+                    .on("mouseleave", function () {
+                        $(".mini_box2").stop().fadeOut(100);
+                    });
+            });
+        </script>
+    </body>
+</html>

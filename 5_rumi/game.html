@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="/5_rumi/css/game.css" />
+        <link rel="stylesheet" type="text/css" href="/5_rumi/css/button.css" />
+        <link rel="stylesheet" type="text/css" href="/5_rumi/css/comment.css" />
+        <link rel="stylesheet" type="text/css" href="/5_rumi/css/popup.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet" />
+        <title>찐해:RummiKub</title>
+        <link href="../0_login/img/pabi.png" rel="shortcut icon" type="image/x-icon">
+    </head>
+
+    <body>
+        <!-- nav -->
+        <div class="nav">
+            <!-- player -->
+            <div class="nav-player">
+                <div class="players">
+                    <p class="player player1">나</p>
+                    <p class="player1-tile">14</p>
+                </div>
+                <div class="players">
+                    <p class="player player2">로봇</p>
+                    <p class="player2-tile">14</p>
+                </div>
+            </div>
+            <!-- time/tile -->
+            <div class="info">
+                <div class="time-text">제한 시간 01:00</div>
+                <div class="remaining-tile-text">남은 타일 개수 76</div>
+            </div>
+            <div id="comment">대화창</div>
+        </div>
+        <script type="text/javascript" src="/5_rumi/js/comment.js"></script>
+        <!-- robot board -->
+        <div class="board-body">
+            <div class="robot-board"></div>
+            <div class="board-body-btn">
+                <button
+                    class="btn tile-refresh"
+                    onclick="main_board_refresh_click()"
+                    title="게임 중 오류가 날 경우 사용해주세요"
+                >
+                    오류<br />새로고침
+                </button>
+            </div>
+        </div>
+
+        <!-- main board -->
+        <div class="board-body">
+            <div class="main-board" onclick="set_board_click(clickTile)" id="tile-set"></div>
+            <div class="board-body-btn main-body-before-btn">
+                <button class="btn main-before-btn skip-btn" onclick="skip_turn_click()">차례<br />넘기기</button>
+            </div>
+            <div class="board-body-btn main-body-after-btn">
+                <button class="btn main-after-btn reset-btn" onclick="refresh_click()">리셋</button><br />
+                <button class="btn main-after-btn pass-btn" onclick="pass_click()">통과</button>
+            </div>
+        </div>
+        <!-- player board -->
+        <div class="board-body">
+            <div class="player-board">
+                <div class="set-player-board" onclick="player_click()">
+                    <img src="../5_rumi/image/set.svg" class="tile-set" id="tile-set2" />
+                </div>
+            </div>
+            <div class="board-body-btn">
+                <button class="btn player-btn r-to-b" onclick="r_to_b_click()"></button><br />
+                <button class="btn player-btn a-to-z" onclick="a_to_z_click()"></button>
+            </div>
+        </div>
+        <script type="text/javascript" src="/5_rumi/js/robot.js"></script>
+        <script type="text/javascript" src="/5_rumi/js/game.js"></script>
+
+        <!-- finish popup -->
+        <div class="modal">
+            <div class="popup">
+                <h1 class="popup-title">승리</h1>
+                <div class="popup-table">
+                    <table>
+                        <tr>
+                            <td class="td-player">나</td>
+                            <td class="td-score" id="me_score">0</td>
+                            <td id="me_win">승</td>
+                        </tr>
+                        <tr>
+                            <td class="td-player">로봇</td>
+                            <td class="td-score" id="robot_score">-14</td>
+                            <td id="robot_win">패</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="popup-btn-body">
+                    <button class="btn popup-btn" onclick="goMain()">메인 화면</button>
+                    <button class="btn popup-btn" onclick="restart()">한 번 더 플레이</button>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="/5_rumi/js/finish.js"></script>
+    </body>
+</html>

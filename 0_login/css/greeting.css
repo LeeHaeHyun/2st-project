@@ -1,0 +1,84 @@
+/* 로그인시 어서와요 반겨주는 동적 페이지 */
+
+i{
+  display: inline-block;
+	width: 10px;
+	height: 15px;
+  margin: 6.5px 0;
+  background-image: url(../img/blink.gif);
+  background-size: contain;
+  background-repeat: no-repeat;
+	animation-name: blink;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+@keyframes blink {
+  0% {opacity: 0}
+  	49%{opacity: 0}
+  	50% {opacity: 1}
+  }
+
+@keyframes rotateIMG {
+  from{
+   transform: rotateY(0deg);
+   }
+   to{
+   transform: rotateY(360deg);
+   }
+  }
+  @-webkit-keyframes rotateIMG{
+   from{-webkit-transform: rotateY(0deg);}
+   to{-webkit-transform: rotateY(360deg);}
+  }
+
+#intro {
+  width: 100%; height: 100%;
+  background-color: #000;
+  position: absolute;
+  top: 0; left: 0;
+  color: #ffffff;
+  display: none;
+  z-index: 1000;
+}
+.intro__h2{
+  font-size: 50px;
+  margin: 0 auto;
+}
+#intro > section{
+  width: 350px;
+  height: 500px;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  background: #000;
+}
+
+#intro section img{
+  width: 100%;
+  animation-name: rotateIMG;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
+  -webkit-animation-name: rotateIMG;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 5s;
+}
+
+#introSpan1{
+  font-family: 'Dongle', sans-serif;
+  font-weight: 700;
+  margin-left: 50px;
+}
+
+#introSpan2{
+  font-family: 'Dongle', sans-serif;
+  font-weight: 700;
+  margin-left: 50px;
+}
+
+#intro h2 span {
+  display: block;
+  font-family: 'Dongle', sans-serif;
+} 

@@ -1,0 +1,175 @@
+@import "./modal.css";
+.hidden {
+  display: none;
+}
+
+* {
+  font-family: "SUIT", sans-serif;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  align-items: center;
+}
+button#check {
+  font-family: "SUIT", sans-serif;
+  font-size: 8px;
+  background: rgb(133, 185, 240);
+  color: rgb(255, 255, 255);
+  padding: 7px;
+  border: none;
+  margin: 5px;
+}
+
+p {
+  font-size: 8px;
+}
+eventButton {
+  background: rgb(189, 228, 247);
+  height: 10;
+  width: 20;
+}
+
+p#event {
+  font-size: 14px;
+}
+
+button#notice {
+  border: solid 3px rgb(252, 205, 135);
+  padding: 2px 10px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  background-color: rgb(255, 242, 31);
+}
+
+p#notice {
+  font-size: 10px;
+  font-weight: 700;
+  color: black;
+}
+
+#update {
+  max-width: 200px;
+}
+
+button#up {
+  margin: 1px;
+  padding: 1rem;
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+  background-color: rgb(4, 80, 51);
+  border: 1px solid green;
+}
+
+p#update {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+a#feed {
+  text-decoration-line: none;
+  color: black;
+}
+
+p#initial {
+  background: rgb(79, 153, 233);
+  color: rgb(255, 255, 255);
+  padding: 4px;
+  margin-top: 4px;
+  margin-left: 3px;
+  border: none;
+  border-radius: 70%;
+  font-size: 10px;
+}
+
+p#box {
+  font-weight: bolder;
+  color: red;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button#search {
+  font-family: "SUIT", sans-serif;
+  font-size: 1rem;
+  background: rgb(79, 153, 233);
+  color: rgb(255, 255, 255);
+  padding: 7px;
+  margin-top: 7px;
+  margin-left: 5px;
+  border: none;
+  width: 5rem;
+}
+
+button#home {
+  background-color: transparent;
+  border: none;
+  color: rgb(79, 153, 233);
+}
+input#search {
+  font-family: "SUIT", sans-serif;
+  background: rgb(79, 153, 233);
+  color: rgb(255, 255, 255);
+  padding: 7px;
+  margin-top: 4px;
+  border: none;
+}
+
+button#blue {
+  font-family: "SUIT", sans-serif;
+  background: rgb(138, 185, 235);
+  color: rgb(255, 255, 255);
+  padding: 7px 13px;
+  margin-top: 4px;
+  border: none;
+  width: 5rem;
+}
+button#mara {
+  background: rgb(255, 59, 59);
+  color: rgb(255, 255, 255);
+  padding: 7px;
+  margin-top: 10px;
+  width: 10.6rem;
+  border: none;
+  font-family: "SUIT", sans-serif;
+  font-size: 0.9rem;
+
+  position: relative;
+  left: 0.1rem;
+}
+
+#group_button {
+  display: flex;
+  flex-direction: row;
+  float: left;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#idol {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 1px solid rgb(79, 153, 233);
+  font-size: 15px;
+  padding: 8px 8px;
+  margin: 5px;
+}
+
+#wrapper {
+  height: auto;
+  min-height: 100%;
+  padding-bottom: 10vh;
+  text-align: center;
+}
+footer {
+  height: 10vh;
+  position: relative;
+  transform: translateY(-100%);
+}
+textarea {
+  font-size: 17px;
+}

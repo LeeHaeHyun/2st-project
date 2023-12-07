@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <link href="../1_main/css/bootstrap.css" rel="stylesheet" />
+    <script src="../1_main/js/bootstrap.bundle.js"></script>
+    <!-- jquery 버전 최신으로 변경-->
+    <script
+        src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+        crossorigin="anonymous"
+    ></script>
+    <script src="../1_main/js/dday.js"></script>
+    <script src="../1_main/js/cuty.js"></script>
+    <script src="../1_main/js/ui.js"></script>
+    <script src="../1_main/js/owl.carousel.min.js"></script>
+    <script src="../1_main/js/chatGPTscript.js"></script>
+    <script src="../1_main/js/weatherscript.js"></script>
+    <script
+        type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3ec901a8fd84b6be16f08fa28ffaaca4&libraries=services"
+    ></script>
+    <link rel="stylesheet" href="../1_main/css/owl.carousel.min.css" />
+    <!--캐러셀 css-->
+    <link rel="stylesheet" href="../1_main/css/common.css" />
+    <link rel="stylesheet" href="../1_main/css/contents.css" />
+
+    <title>찐해:: 천생연분이 만난 찐한 이야기♬</title>
+
+    <script type="text/javascript">
+        var audioIdx = 0;
+        var gamePageChk;
+        var nowPage = "";
+        var menuAnimation = [
+            "/assets/img/menu_ani01.gif",
+            "/assets/img/menu_ani02.gif",
+            "/assets/img/menu_ani03.gif",
+            "/assets/img/menu_ani04.gif",
+        ];
+        //페이지 모두 로딩 되고 나면 실행
+        $(document).ready(function () {
+            $(".content").load("../1_main/html/index_main.html", function () {
+                //처음 접속하고 노래 바로 시작을 막을려면 아래 주석 처리
+                myPlay(0);
+            });
+
+            $("#menu-gif").attr("src", randomItem(menuAnimation));
+
+            //a 태그 href='#' 모두 제거 및 새창 제외
+            $("a").each(function () {
+                var tg = $(this).attr("target");
+                if (tg != "_blank") {
+                    $(this).attr("href", "javascript:;");
+                }
+            });
+
+            //a 태그 data 사용해서 공통화 처리
+            $("a").on("click", function () {
+                var url_ = $(this).data("url");
+                if (url_ == undefined) return;
+
+                $.ajax({
+                    url: url_,
+                    async: false,
+                    beforeSend: function (xhr) {
+                        try {
+                            //산성비 게임 클리어
+                            //페이지를 벗어날때 이전에 clear 해줌
+                            if (nowPage.indexOf("tag.html") != -1) {
+                                Game.Clear();
+                            }
+
+                            //일게 페이지에서 현재시간 타이머 클릭후 페이지 나갈때 클리어
+                            if (nowPage.indexOf("diary.html") != -1) {
+                                clearInterval(diaryNowTime);
+                            }
+
+                            //날씨 페이지에서 나갔다 왔을때 오작동
+                            if (nowPage.indexOf("weather.html") != -1) {
+                                clearInterval(diaryNowTime);
+                            }
+                        } catch (e) {}
+                    },
+                    success: function (data) {
+                        if (data != null) {
+                            $(".content").empty();
+                            $(".btn_close_gnb").click();
+                            $(".content").html(data);
+                        }
+
+                        nowPage = url_;
+
+                        //메뉴 gif 랜덤처리
+                        $("#menu-gif").attr("src", randomItem(menuAnimation));
+                    },
+                });
+            });
+        });
+
+        // 노래 변경
+        function changePlay() {
+            var musicCnt = $("#select option").length;
+            audioIdx == musicCnt - 1 ? (audioIdx = 0) : ++audioIdx;
+            myPlay(audioIdx);
+        }
+
+        function changePlayStop() {
+            $("audio").trigger("pause");
+        }
+
+        //사용안하지만 필요할수도? 필요없으면 삭제하세요.
+        function changePlayStart() {
+            $("audio").trigger("paly");
+        }
+
+        // 노래 선택
+        function musicSelect(idx) {
+            if (idx == undefined) idx = 0;
+            audioIdx = idx;
+            var music = $("#select option:eq('" + idx + "')").val();
+            console.log(music);
+            return music;
+        }
+
+        // play
+        function myPlay(val) {
+            var song = musicSelect(val);
+            $("audio").attr("src", song);
+            $("audio").trigger("play");
+            $("audio").on("ended", function () {
+                //노래 끝나면 다음곡으로
+                changePlay();
+            });
+        }
+
+        // 배열요소 랜덤으로 리턴
+        function randomItem(val) {
+            return val[Math.floor(Math.random() * val.length)];
+        }
+    </script>
+
+    <!-- js -->
+</head>
+<body>
+    <div class="wrapper">
+        <!-- start : header -->
+        <header class="header">
+            <h1 class="logo"><a href="/1_main/main.html" data-url="/1_main/html/index_main.html">찐해</a></h1>
+            <!-- 메뉴열기 -->
+            <button type="button" class="btn_open_gnb">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- 메뉴닫기 -->
+            <button type="button" class="btn_close_gnb">
+                <span></span>
+                <span></span>
+            </button>
+
+            <!-- cat -->
+            <div class="header_cat">
+                <img src="../1_main/img/img_header_cat.gif" alt="" />
+            </div>
+        </header>
+        <!-- end : header -->
+
+        <!-- start : gnb -->
+        <nav class="gnb">
+            <div class="gnb_inner">
+                <!-- cat -->
+                <div class="gnb_cat">
+                    <img src="" alt="" id="menu-gif" />
+                </div>
+
+                <!-- 언어선택 -->
+                <div class="lang eng" style="display: none">
+                    <a href="#" class="active eng_btn" onclick="eng_btn()">ENG</a>
+                    <a href="#" class="kor_btn" onclick="kor_btn()">KOR</a>
+                    <!-- a href="/jpn/">JP</a -->
+                </div>
+
+                <div class="lang kor">
+                    <a href="#" class="active eng_bnt" onclick="kor_btn()">한글</a>
+                    <a href="#" class="kor_btn" onclick="eng_btn()">영어</a>
+                    <!-- a href="/jpn/">JP</a -->
+                </div>
+
+                <!-- 전체메뉴 -->
+                <ul class="menu eng" style="display: none">
+                    <li>
+                        <button type="button" class="btn btn-outline-warning next" onclick="control(event);">
+                            Music♬
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-outline-dark" onclick="changePlayStop();">Off</button>
+                        <br /><br />
+                        <a href="#" class="couple" data-url="../2_intro/intro.html">COUPLE</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" class="line" data-url="../sogae/sogae.html">Intro</a>
+                            </li>
+                            <li>
+                                <a href="#" class="story" data-url="../3_diary/diary.html">Diary</a>
+                            </li>
+                            <li>
+                                <a href="#" class="know" data-url="../4_tag/tag.html">Tag</a>
+                            </li>
+                            <li>
+                                <a href="#" class="box" data-url="../5_rumi/main.html">Box</a>
+                            </li>
+                            <br />
+                            <br />
+                        </ul>
+                        <a href="#" class="date">DATE</a>
+                        <ul class="submenu1">
+                            <li>
+                                <a href="#" class="weather" data-url="../6_weather/weather.html">Weat</a>
+                            </li>
+                            <li><a href="#" class="loca" data-url="../7_loca/mix.html">Loca</a></li>
+                            <li>
+                                <a href="#" class="info" data-url="../8_info/index.html">Info</a>
+                            </li>
+                            <li><a href="http://jhc.dothome.co.kr/9_board/index.php" target="_blank">Broa</a></li>
+                            <br />
+                        </ul>
+                        <br />
+                        <a href="#" class="gpt" data-url="../11_chatGPT/chat.html">[AI]CHAT</a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="../12_email/email.html" class="email" target="_blank">Inquiry</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="menu kor">
+                    <li>
+                        <button type="button" class="btn btn-outline-warning next" onclick="changePlay();">
+                            음악재생
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-outline-dark" onclick="changePlayStop();">음악끄기</button
+                        ><br /><br />
+
+                        <a href="#" class="couple" data-url="../2_intro/intro.html">찐해</a>
+                        <ul class="submenu">
+                            <li>
+                                <a href="#" class="line" data-url="../sogae/sogae.html">한 줄 소개</a>
+                            </li>
+                            <li>
+                                <a href="#" class="story" data-url="../3_diary/diary.html">일기</a>
+                            </li>
+                            <li>
+                                <a href="#" class="know" data-url="../4_tag/tag.html">꼬리표</a>
+                            </li>
+                            <li>
+                                <a href="#" class="box" data-url="../5_rumi/main.html">박스</a>
+                            </li>
+                            <br />
+                            <br />
+                        </ul>
+                        <a href="#" class="date" data-url="../10_date/date.html">데이트</a>
+                        <ul class="submenu1">
+                            <li>
+                                <a href="#" class="weather" data-url="../6_weather/weather.html">날씨</a>
+                            </li>
+                            <li><a href="#" class="loca" data-url="../7_loca/mix.html">위치</a></li>
+                            <li>
+                                <a href="#" class="info" data-url="../8_info/index.html">정보</a>
+                            </li>
+                            <li><a href="http://jhc.dothome.co.kr/9_board/index.php" target="_blank">자유게시판</a></li>
+                            <br />
+                        </ul>
+                        <br />
+                        <a href="#" class="gpt" data-url="../11_chatGPT/chat.html">[AI]질문&답변</a>
+                        <ul class="submenu2">
+                            <li>
+                                <a href="../12_email/email.html" class="email" target="_blank">문의하기</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- sns -->
+                <div class="sns">
+                    <a href="https://velog.io/@kama_code" target="_blank">
+                        <img src="../1_main/img/pc_velog.png" class="pc" alt="벨로그" />
+                        <img src="../1_main/img/m_velog.png" class="m" alt="벨로그" />
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="../1_main/img/ico_youtube.png" class="pc" alt="유튜브" />
+                        <img src="../1_main/img/ico_youtube_m.png" class="m" alt="유튜브" />
+                    </a>
+                    <a href="#" target="_blank">
+                        <img src="../1_main/img/pc_who.png" class="pc" alt="개발자" />
+                        <img src="../1_main/img/m_who.png" class="m" alt="개발자" />
+                    </a>
+                </div>
+            </div>
+            <p class="slogan">천생연분이 만난 찐한 이야기</p>
+        </nav>
+        <!-- end : gnb -->
+
+        <!-- start : main -->
+        <div class="content"></div>
+
+        <!-- end : main -->
+
+        <!-- start : popup -->
+
+        <!-- end : popup -->
+
+        <!-- <audio id="audio-controller" autoplay> </audio> -->
+        <audio id="audio-controller"><source src="" type="audio/mpeg" /></audio>
+
+        <select id="select" style="display: none">
+            <option value="#"></option>
+        </select>
+    </div>
+    <!-- Code injected by live-server -->
+
+    <script>
+        function closePopup() {
+            const mainPopup = (document.querySelector(".main_popup").style.display = "none");
+        }
+
+        function setCookie(cname, cvalue, exdays) {
+            // cname : 쿠키이름,
+            // cvalue : 쿠키값,
+            // exdays : 쿠키 보관 기간, 하루 = 1 (설정이 안되어있으면 브라우저 종료할 때 삭제된다)
+            var d = new Date();
+            d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+            var expires = "expires=" + d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+
+            closePopup();
+        }
+
+        function getCookie(cname) {
+            // cname : 쿠키이름
+            var name = cname + "=";
+            var ca = document.cookie.split(";");
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == " ") {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+
+        var checkCookie = getCookie("popName");
+        if (checkCookie != "mese") {
+            //document.querySelector(".main_popup").style.display = "block";
+        }
+
+        function kor_btn() {
+            $(".kor").show();
+            $(".eng").hide();
+        }
+
+        function eng_btn() {
+            $(".kor").hide();
+            $(".eng").show();
+        }
+    </script>
+    <script>
+        (function () {
+            var w = window;
+            if (w.ChannelIO) {
+                return w.console.error("ChannelIO script included twice.");
+            }
+            var ch = function () {
+                ch.c(arguments);
+            };
+            ch.q = [];
+            ch.c = function (args) {
+                ch.q.push(args);
+            };
+            w.ChannelIO = ch;
+            function l() {
+                if (w.ChannelIOInitialized) {
+                    return;
+                }
+                w.ChannelIOInitialized = true;
+                var s = document.createElement("script");
+                s.type = "text/javascript";
+                s.async = true;
+                s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+                var x = document.getElementsByTagName("script")[0];
+                if (x.parentNode) {
+                    x.parentNode.insertBefore(s, x);
+                }
+            }
+            if (document.readyState === "complete") {
+                l();
+            } else {
+                w.addEventListener("DOMContentLoaded", l);
+                w.addEventListener("load", l);
+            }
+        })();
+
+        ChannelIO("boot", {
+            pluginKey: "#",
+        });
+    </script>
+</body>

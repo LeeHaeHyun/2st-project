@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>찐해:연애 다이어리</title>
+  <script src="../3_diary/photo.js"></script>
+  <script src="../3_diary/bootstrap.bundle.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+<script>
+  var span1;
+  $(document).ready(function(){  
+  // window.onload = function () {
+    span1 = document.getElementById("visitor1");
+
+    if (typeof (Storage) != undefined) {
+      var visitVar1 = localStorage.getItem("visitCnt1");
+      if (visitVar1 == null) {
+        localStorage.setItem("visitCnt1", 1);
+        span1.innerHTML = "첫방문이시네요";
+      }
+      else {
+        span1.innerHTML = parseInt(visitVar1) + 1 + "번째 방문했어요";
+        visitVar1++;
+        localStorage.setItem("visitCnt1", visitVar1);
+      }
+    }
+  })
+</script>
+<script>
+  function displayTime() {
+    var date = new Date();
+    var displayClock = document.getElementById("clock");
+    displayClock.innerHTML = date.getHours() + "시 " + date.getMinutes() + "분 " + date.getSeconds() + "초";
+  }
+  function displayTimeCall() {
+    setInterval("displayTime()", 1000);
+  }
+</script>
+
+<body>
+  <div id="wrap">
+    <div class="main">
+      <img src="../3_diary/img/main.jpg" alt="" style="height: 1400px;">
+      <div class="txt">
+        <h4>찐해 연애 다이어리</h4>
+        <p><span id="visitor1" style="color:red; font-size: 1.5em;"></span></p><br>
+        <span id="clock" style="color:rgb(255, 255, 255); font-size: 1.8em; font-weight: bold;"></span><br><br>
+        <button type="button" class="btn btn-outline-warning" onclick="displayTimeCall();" style="font-size: 19px;">현재 시간</button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="accordion-area">
+        <div id="accordion">
+
+          <div class="card">
+            <div class="card-header">
+              <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseOne" style="font-size: 25px;">
+                샘플샘플
+              </a>
+            </div>
+            <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+              <div class="card-body" style="font-size: 19px;">
+                <img src="#" style="height:300px"><br>
+                샘플입니다.<br>
+                <button class="btn btn-outline-success" style="font-size: 15px;" onclick="photo1()">사진.. 더 볼래?</button>
+              </div>
+            </div>
+          </div>
+
+      <div class="card">
+        <div class="card-header">
+          <a class="btn btn-dark" data-bs-toggle="collapse" href="#collapseEND" style="font-size: 25px;">
+            앞으로도 계속..
+          </a>
+        </div>
+        <div id="collapseEND" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            앞으로도 계속..
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- 아코디언 css -->
+    </div>
+  </div>
+
+      <script>
+        $(function () {
+          $('.accordion-area').accordion();
+        })
+      </script>
+    </div>
+  </div>
+  <link rel="stylesheet" href="../3_diary/css/story.css">
+
+ 
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
+        <link rel="stylesheet" href="../Twitter/css/style.css" />
+        <title>찐해:트위터 통합 검색 API</title>
+        <link href="/0_login/img/pabi.png" rel="shortcut icon" type="image/x-icon">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    </head>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap");
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+body {background: #80e1ff; font-family: 'Noto SaNS KR',sans-serif;}
+</style>
+    </style>
+    <body>
+        <center>
+            <!-- 아이콘이 나오는 class임 material-symbols-outlined-->
+            <span class="material-symbols-outlined" style="font-size: 100px;">
+                captive_portal
+                </span>
+            <div class="container">
+                <h1 style="color: rgb(0, 0, 0)">트위터 통합 검색 API</h1>
+                <h4>검색(Enter) 입력시 트위터 사이트로 이동.</h4>
+                <h5>(트위터 계정이 있어야만 이용 가능)</h5>
+                <form id="search-form">
+                    <input required maxlength="10" type="text" style="width: 280px; height: 24px; font-size: 10px" />
+                    <input type="submit" id="search" value="검색" /><br />
+                </form>
+                <br />
+            </div>
+
+            <!-- modal -->
+            <div class="modal-container">
+                <div class="modal">
+                    <div class="modal-header">
+                        <p class="modal-title">해시태그 목록</p>
+                        <button class="modal-close">❌</button>
+                    </div>
+                    <article class="modal-body">
+                        <p>#한식맛집</p>
+                        <p>#중식맛집</p>
+                        <p>#일식맛집</p>
+                        <p>#양식맛집</p>
+                        <p>#맛집</p>
+                        <p>#꿀팁</p>
+                        <p>#직장인</p>
+                        <p>#야식</p>
+                        <p>#추천</p>
+                        <p>#후기</p>
+                        <p>#서울맛집</p>
+                        <p>#경기도맛집</p>
+                        <p>#맛집네비게이션</p>
+                        <p>#맛집탐험</p>
+                        <p>#국내여행</p>
+                        <p>#해외여행</p>
+                        <p>#베스트맛집</p>
+                        <p>#맛집순위</p>
+                        <p>#여행지추천</p>
+                        <p>#세븐틴</p>
+                        <p>#txt</p>
+                        <p>#투모로우바이투게더</p>
+                        <p>#슈퍼주니어</p>
+                        <p>#JMT</p>
+                        <p>#생생정보</p>
+                        <p>#데이트</p>
+                        <p>#데이트코스</p>
+                        <p>#먹방</p>
+                        <p>#간식</p>
+                        <p>#가볼만한곳</p>
+                        <p>#꿀맛</p>
+                        <p>#일상</p>
+                        <p>#초코</p>
+                        <p>#점심메뉴</p>
+                        <p>#점심</p>
+                        <p>#치즈</p>
+                        <p>#고기</p>
+                        <p>#다이어트</p>
+                    </article>
+                </div>
+            <div>
+              </div> 
+              </div>
+            <br />
+                <iframe
+                    width="385"
+                    height="250"
+                    src="https://www.youtube.com/embed/m39qePcedBc?si=U64Aj4Y2PSWbE7Ou?rel=0&amp;autoplay=1&mute=1&amp;loop=1;playlist=영상키값"
+                    frameborder="0"
+                ></iframe>
+            </div>
+            <!-- 해시태그 확인 버튼 -->
+            <br />
+            <br />
+            <button id="check" class="btn-open-modal" style="width: 20%; height: 20%; font-size: 18px;">검색어 목록</button>
+            <br />
+            <br />
+            <br />
+            <!-- 아이콘이 나오는 class임 material-symbols-outlined-->
+            <a href="https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EC%84%B8%EB%B8%90%ED%8B%B4"
+                ><button id="home" click>
+                    <span class="material-symbols-outlined" style="font-size: 100px;" title="세븐틴 사진 볼래?">
+                        diversity_1</span></button></a>
+                
+            <br />
+            <br />
+
+            <div>
+                <h5>
+                    <!-- Footer -->
+                    <p style="font-size: 18px;">천생연분이 만난<br />찐한 이야기💕</p>
+                    <p style="font-size: 18px;"><a> &copy; kama_code 이해현 </a></p>
+                </h5>
+            </div>
+        </center>
+
+        <script type="module" src="./js/total.js"></script>
+
+        <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+        <script type="text/javascript">
+            if (!wcs_add) var wcs_add = {};
+            wcs_add["wa"] = "11f1198659ae050";
+            if (window.wcs) {
+                wcs_do();
+            }
+        </script>
+    </body>
+    <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2200970422276014"
+        crossorigin="anonymous"
+    ></script>
+</html>

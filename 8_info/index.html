@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>찐해:정보가 가득한 페이지</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+    </head>
+    <style>
+        @charset "utf-8";
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap");
+        @import url(font-awesome.min.css);
+        @import url("//fonts.googleapis.com/css?family=Raleway:300,700");
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            position: relative;
+            width: 100%;
+            font-family: "Noto Sans KR", sans-serif;
+        }
+        #banner {
+            width: 100%;
+            height: 600px;
+            background: #517351;
+            margin-bottom: 100px;
+        }
+        .banner_area {
+            position: absolute;
+            left: 34%;
+            top: 10%;
+            width: 600px;
+            color: #fff;
+            text-align: center;
+            border: 1px solid #fff;
+            display: inline-block;
+            padding: 30px 40px;
+        }
+        .banner_area > h2 {
+            font-size: 30px;
+        }
+        .banner_area p {
+            font-size: 20px;
+        }
+
+        .actions {
+            margin-top: 20px;
+        }
+        .actions .button {
+            color: #fff;
+            background: #1a3c1a;
+            padding: 8px 20px;
+        }
+        .inner {
+            text-align: center;
+        }
+        .inner > .major h2 {
+            font-size: 35px;
+            margin-bottom: 60px;
+        }
+        .feature {
+            display: block;
+            width: 500px;
+            margin: 60px auto;
+            padding: 10px 20px;
+            line-height: 30px;
+            border: 1px solid #1a3c1a;
+        }
+        .feature > h3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        footer {
+            width: 100%;
+            margin-top: 30px;
+            background: #1a3c1a;
+            color: #fff;
+            text-align: center;
+        }
+        footer p:first-child {
+            font-size: 30px;
+            padding-top: 40px;
+        }
+        footer p:last-child {
+            font-size: 20px;
+            padding-bottom: 40px;
+        }
+
+        @media (max-width: 390px) {
+            #banner {
+                width: 100%;
+                height: 400px;
+                background: #517351;
+                margin-bottom: 50px;
+            }
+            .banner_area {
+                position: absolute;
+                left: 18%;
+                top: 10%;
+                width: 250px;
+                color: #fff;
+                text-align: center;
+                border: 1px solid #fff;
+                display: inline-block;
+                padding: 30px 40px;
+            }
+            .banner_area > h2 {
+                font-size: 20px;
+            }
+            .banner_area p {
+                font-size: 16px;
+            }
+
+            .actions {
+                margin-top: 20px;
+                font-size: 14px;
+            }
+            .wrapper {
+                padding-top: 20px;
+            }
+            .inner > .major h2 {
+                font-size: 20px;
+                margin-bottom: 60px;
+            }
+            .feature {
+                display: block;
+                width: 300px;
+                margin: 50px auto;
+                padding: 10px 20px;
+                line-height: 30px;
+                border: 1px solid #1a3c1a;
+            }
+            .feature > h3 {
+                font-size: 18px;
+                font-weight: bold;
+            }
+            .feature > p {
+                font-size: 15px;
+                font-weight: 400;
+            }
+
+            footer {
+                width: 100%;
+                margin-top: 30px;
+                background: #1a3c1a;
+                color: #fff;
+                text-align: center;
+            }
+            footer p:first-child {
+                font-size: 20px;
+                padding-top: 40px;
+            }
+            footer p:last-child {
+                font-size: 18px;
+                padding-bottom: 40px;
+            }
+        }
+    </style>
+
+    <body>
+        <!-- Banner -->
+        <section id="banner">
+            <div class="banner_area">
+                <h2><strong>정보!</strong> 우리들의 활용도 높은 공간</h2>
+                <p>정보가 가득한 페이지</p>
+                <ul class="actions">
+                    <li>
+                        <a href="#" class="button special" onclick="window.open('../8_info/html/camera.html')"
+                            >(모바일)사진촬영</a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- One -->
+        <section id="one" class="wrapper special">
+            <div class="inner">
+                <header class="major">
+                    <h2>너에게 항상 유용한 정보가 되었으면..</h2>
+                </header>
+                <div class="features">
+                    <div class="feature" onclick="window.open('https://www.google.com/imghp?hl=ko&ogbl')">
+                        <h3>이미지 번역기</h3>
+                        <p>이미지를 텍스트로 변환하여 번역해주는 기능</p>
+                    </div>
+                    <div class="feature" onclick="window.open('../8_info/html/Twitter/total.html')">
+                        <h3>트위터 검색기</h3>
+                        <p>트위터(SNS)의 해쉬태그 검색을 통해 통합 정보 제공</p>
+                    </div>
+                    <div class="feature" onclick="window.open('http://jhc.dothome.co.kr/8_info/html/much/index.html')">
+                        <i class="fa fa-file-text fa-2x" type="button"></i>
+                        <h3>시세</h3>
+                        <p>국가공공데이터DB를 열어서 <br />만들어 본 생필품 시세 조회 기능</p>
+                    </div>
+                    <div class="feature" onclick="window.open('http://webtv.dothome.co.kr/index.php')">
+                        <h3>TV</h3>
+                        <p>
+                            말 그대로 채널별로 모아놓은 TV 채널<br />
+                            크롬 확장프로그램 HLS Player - <br />m3u8 Streaming Player <br />설치 필요
+                        </p>
+                    </div>
+                    <div class="feature" onclick="window.open('http://m.bus.go.kr/mBus/index.bms')">
+                        <h3>대중교통</h3>
+                        <p>(모바일)<br />버스 및 지하철이 언제 오는지 <br />알려주는 기능</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer -->
+            <footer id="footer">
+                <p>천생연분이 만난<br />찐한 이야기💕</p>
+                <p><a> &copy; kama_code 이해현 </a></p>
+            </footer>
+        </section>
+
+        <!-- Scripts -->
+        <script src="/8_info/js/jquery.min.js"></script>
+        <script src="/8_info/js/skel.min.js"></script>
+        <script src="/8_info/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="/8_info/js/main.js"></script>
+    </body>
+</html>

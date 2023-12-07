@@ -1,0 +1,48 @@
+// API를 하면서 전송 결과를 확인하기 위한 짧게 공부한 자료
+
+GET https://demo-old.jiniworld.me/test/mili HTTP/1.1
+
+Content-Type: application/json; charset=UTF-8
+
+{
+  "name": "sample",
+  "time": "Wed, 21 Oct 2015 18:27:50 GMT"
+}
+
+### 업데이트 요청
+PUT https://jsonplaceholder.typicode.com/posts/1 HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+  "id": 1,
+  "title": "Updated Title",
+  "body": "Updated Body",
+  "userId": 1
+}
+
+### 패치 요청
+PATCH https://jsonplaceholder.typicode.com/posts/1 HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+{
+  "title": "Patched Title"
+}
+
+### 삭제 요청
+DELETE https://jsonplaceholder.typicode.com/posts/1 HTTP/1.1
+
+### 요청
+GET http://openAPI.seoul.go.kr:8088/6656414f656861653830746f7a6469/xml/ListNecessariesPricesService/1/5/ /갈치 HTTP/1.1
+Content-Type: application/json; charset=UTF-8
+
+### 지도
+GET /v1/search/local.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=random HTTP/1.1
+Host: openapi.naver.com
+User-Agent: curl/7.49.1
+Accept: */*
+X-Naver-Client-Id: {SDShB2iPzUFH1QKF_Nee}
+X-Naver-Client-Secret: {upzjfMmZa9}
+# <!-- API 호출 시 아래와 같이 호출하시되 검색하지 않는 값은 공백 ' '으로 넣어주셔야 합니다.>
+# (http://openapi.seoul.go.kr:8088/(인증키)/xml/ListNecessariesPricesService/시작위치/종료위치/시장or마트 이름/품목/날짜(YYYY-MM)/시장유형(대형마트,전통시장)/자치구)
+# https://data.seoul.go.kr/dataList/OA-1170/S/1/datasetView.do;jsessionid=86429AF383CA05B4FF92D0179897A160.new_portal-svr-11
+# 적어놓은 URL 확인 후 이해안되시는 점은 02-2133-1271로 문의주시면 자세히 답변드리겠습니다.

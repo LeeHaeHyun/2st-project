@@ -1,0 +1,63 @@
+html,body {overflow-x: hidden}
+
+.days {width: 100%!important; padding: 0!important; }
+
+#one {background: #fbfbfb; padding-bottom: 50px}
+
+#two {max-width: 100%; padding-top: 0}
+#two .inner {width: 90%; margin: 0 auto}
+#two .image {width: 40%;}
+#two .image img {max-width: 100%}
+
+.color_gray {color: #828282}
+
+#two .sp_con {height: 630px; width: 100%; padding: 50px 0px; margin-bottom: 80px; border-top: 1px solid #ddd;  border-bottom: 1px solid #ddd;}
+#two .sp_con:first-child {border-top: none}
+#two .sp_con.last {margin-bottom: 10px}
+#two .sp_con::after {display: block; clear: both; content: ""}
+#two .sp_con .sp_img {width:49%; height: 100%; position: relative; float: left; text-align: center}
+#two .sp_con .sp_img img {width: 310px; height: 280px; border-radius: 100%;  border: 1px solid #eee; position: absolute; top: 50%; left: 50%; margin-left: -155px; margin-top: -125px}
+
+#two .sp_con .sp_content {width: 49%; float: right}
+#two .sp_con .sp_content h2 {font-size: 30px; margin: 10px 0px; line-height: 40px}
+#two .sp_con .sp_content h3 {margin: 15px 0px; font-size: 25px; line-height: 40px; font-weight: 300}
+
+
+#two .sp_con p {font-size: 12pt; color: #999999;}
+
+#two .special {margin-bottom: 70px}
+#two .special ul {text-align: center}
+#two .special ul li {display: inline-block; width: 49%; word-break: keep-all; vertical-align: top}
+#two .special ul li:last-child {width: 100%}
+#two .special ul li span {font-size: 18px; color: #999999;}
+
+.table_type01 {border-top: 1px solid #ddd; margin-bottom: 50px}
+/* .table_type01 thead {} */
+.table_type01 thead th {padding: 10px; color: #999999; font-weight: normal}
+.table_type01 tbody tr:nth-child(2n+1){background: #e6e6e6;background-color: rgba(144, 144, 144, 0.075);}
+.table_type01 tbody tr th,
+.table_type01 tbody tr td {font-size: 18px; padding: 10px; color: #999999; font-weight: normal}
+.table_type01 tbody tr th span, 
+.table_type01 tbody tr td span {font-size: 18px; font-weight: normal}
+/* .table_type01 tbody tr th {} */
+/* .table_type01 tbody tr td {} */
+
+/* #footer {background-color: #f7f7f7; padding: 30px 0px 50px; text-align: center} */
+
+
+
+@media(max-width:769px){
+    #two .sp_con {height: auto ; margin-bottom: 50px}
+    #two .sp_con .sp_img{ width: 100%; float: inherit}
+    #two .sp_con .sp_img img {position: inherit; text-align: center; top: inherit; left: inherit; margin: 30px auto}
+    #two .sp_con .sp_content{width: 100%; float: inherit; text-align: center}
+    
+    #two .sp_con .sp_content h2 {font-size: 24px; line-height: 30px;}
+    #two .sp_con .sp_content h3{font-size: 20px; line-height: 30px;}
+    
+    #two .special ul li span,
+    .table_type01 tbody tr th,
+    .table_type01 tbody tr td,
+    .table_type01 tbody tr th span, 
+    .table_type01 tbody tr td span {font-size: 15px;}
+}

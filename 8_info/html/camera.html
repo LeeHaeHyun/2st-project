@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>찐해:사진촬영 API</title>
+        <link href="/0_login/img/pabi.png" rel="shortcut icon" type="image/x-icon" />
+        <link rel="stylesheet" href="../html/style.css" />
+        <style>
+            footer {
+                width: 100%;
+                margin-top: 30px;
+                background: #1a3c1a;
+                color: #fff;
+                text-align: center;
+            }
+            footer p:first-child {
+                font-size: 30px;
+                padding-top: 40px;
+            }
+            footer p:last-child {
+                font-size: 20px;
+                padding-bottom: 40px;
+            }
+        </style>
+    </head>
+    <script></script>
+    <body>
+        <div class="container">
+            <div class="image-upload" id="image-upload">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="button">
+                        <label for="chooseFile" style="font-size: 25px"> 👉 사진 촬영은 여기를 클릭! 👈 </label>
+                    </div>
+                    <br /><br />
+                    <h3 style="text-align: center">1. 반드시 크롬(chrome)에서 실행한다.<br /></h3>
+                    <h3 style="text-align: center">2. 이미지를 꾸욱~ 누르고 이미지 열기<br /></h3>
+                    <h3 style="text-align: center">3. 주소 옆에 아이콘을 클릭하여 이미지 저장<br /></h3>
+                    <input
+                        type="file"
+                        id="chooseFile"
+                        name="chooseFile"
+                        capture="camera"
+                        accept="image/*"
+                        onchange="loadFile(this)"
+                    />
+                </form>
+
+                <div class="fileContainer">
+                    <div class="fileInput">
+                        <p>FILE NAME:</p>
+                        <p id="fileName"></p>
+                    </div>
+                    <div class="buttonContainer">
+                        <div class="submitButton" id="submitButton">확인</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-show" id="image-show"></div>
+        </div>
+
+        <script src="../html/index.js"></script>
+        <!-- Footer -->
+        <footer id="footer">
+            <p>천생연분이 만난<br />찐한 이야기💕</p>
+            <p><a> &copy; kama_code 이해현 </a></p>
+        </footer>
+    </body>
+</html>

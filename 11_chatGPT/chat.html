@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>찐해::ChatGPT</title>
+        <link rel="stylesheet" href="/11_chatGPT/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        />
+        <script>
+            $(document).ready(function () {
+                chatInput = document.querySelector("#chat-input");
+                sendButton = document.querySelector("#send-btn");
+                chatContainer = document.querySelector(".chat-container");
+                themeButton = document.querySelector("#theme-btn");
+                deleteButton = document.querySelector("#delete-btn");
+                initialInputHeight = chatInput.scrollHeight;
+
+                deleteButton.addEventListener("click", () => {
+                    if (confirm("채팅을 종료하시겠습니까?")) {
+                        localStorage.removeItem("all-chats");
+                        loadDataFromLocalstorage();
+                    }
+                });
+
+                themeButton.addEventListener("click", () => {
+                    document.body.classList.toggle("light-mode");
+                    localStorage.setItem("themeColor", themeButton.innerText);
+                    themeButton.innerText = document.body.classList.contains("light-mode") ? "dark_mode" : "light_mode";
+                });
+
+                chatInput.addEventListener("input", () => {
+                    chatInput.style.height = `${initialInputHeight}px`;
+                    chatInput.style.height = `${chatInput.scrollHeight}px`;
+                });
+
+                chatInput.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" && !e.shiftKey && window.innerWidth > 800) {
+                        e.preventDefault();
+                        handleOutgoingChat();
+                    }
+                });
+
+                loadDataFromLocalstorage();
+                sendButton.addEventListener("click", handleOutgoingChat);
+            });
+        </script>
+    </head>
+    <body>
+        <div class="chat-container" style="margin-left: 10%"></div>
+
+        <div class="typing-container">
+            <div class="typing-content">
+                <div class="typing-textarea">
+                    <textarea
+                        id="chat-input"
+                        spellcheck="false"
+                        style="font-size: 3rem"
+                        placeholder="무엇이든지 물어보세요!"
+                        required
+                    ></textarea>
+                    <span id="send-btn" class="material-symbols-rounded">전송</span>
+                </div>
+                <div class="typing-controls">
+                    <span id="theme-btn" class="material-symbols-rounded">밝기</span>
+                    <span id="delete-btn" class="material-symbols-rounded">종료</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

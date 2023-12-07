@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>찐해: 추억의 태그 잡기</title>
+    <script   src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../4_tag/css/know.css">
+    <link rel="stylesheet" href="../4_tag/css/mobile.css" media="all and (max-width: 800px)">
+    <script src="../4_tag/js/script.js"></script>
+    <script src="../4_tag/js/words.js?ver=2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="flex jcc aic">
+
+    <h1 class="title">사랑이 담긴 우리들의 태그를 잡아라!</h1>
+    <h1 class = "life"></h1>
+    <h1 class = "score"></h1>
+    
+    <div class="game-main">
+        <canvas id="typing-game" width="1000" height="550"></canvas>
+        <div class="flex aic inp" style="gap: 10px;">
+            <input type="text" id="type">
+            <button onclick="Game.submit()">전송</button>
+        </div>
+    </div>
+   	<!-- Footer -->
+       <footer id="footer">
+        <p>천생연분이 만난<br>찐한 이야기💕</p>
+        <p style="font-size: 25px;"><a> &copy; kama_code 이해현 </a></p>
+      </footer>
+    </form>
+    
+    <script>
+        $(document).ready(function(){
+            const canvas = document.querySelector("canvas");
+            //var context2d =  canvas.getContext('2d');
+            //context2d.clearRect(0,0, canvas.width, canvas.height);
+            Game.init(canvas);
+        })
+    </script>
+</body>
+</html>

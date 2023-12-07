@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="../0_login/css/login.css">
+  <script defer src="../0_login/js/login-page.js"></script>
+  <script src="../0_login/js/login_js.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<script>
+    function play1(){
+         swal.fire("때론 환상적 사랑까지!", "우리는 찐해 커플입니다.", "success");
+        view.style.backgroundImage = "url('https://drive.google.com/uc?id=1RvAdGrngfTyVSen-i0MgnGveAciHz1iw')";
+
+        var audio = document.getElementById("audio1");
+        audio.play();
+    }
+</script>
+<body id="view">
+    <div class="title_area" >      
+  <div class="wrapper">
+    <form class="login" id="login-form">
+        <div id="login-error-msg-holder">
+            <p id="login-error-msg">등록된 회원이 아닙니다. <span id="error-msg-second-line">다시 확인해주세요!</span></p></div><br>
+        <audio id="audio1" src="#"></audio>
+        <div class="pointman">
+        <img src="./img/login-menu.png" alt="My Image" width="300" value="PLAY" onclick="play1()" ></img></div>
+        <div class="input-field">
+        <input type="text" name="username" id="manager_id" class="login__input" title="이름이 뭐니?" style="color:aqua" required>
+        <label style="color:white;">이름을 입력해주세요!</label>
+      </div>
+      <div class="input-field">
+        <input type="password" name="password" id="logPW" class="login__input" title="출입키가 있어야 해!" style="color:aqua" required>
+        <label style="color:white;">출입키를 입력해주세요!</label>
+      </div>
+      <div class="forget">
+        <label for="saveId">
+          <input id="useCookie" type="checkbox" value="배경" onClick="check(this)">    
+          <p style="color:black; font-weight: 700;">배경화면 변경하기</p>
+        </label>
+        <button type="button" id="board-go" onclick="window.open('http://jhc.dothome.co.kr/9_board/index.php')">찐해게시판</button>
+      </div>
+      <button type="submit" id="login-form-submit"  class="log_btn bg1" style="color: navy; font-weight: 1000;">입장하기</button>
+      <div class="register">
+        <p>샘플로써 가입은 삭제합니다.<br> <a href="#" style="color:white; font-weight: 700;"><ins>가입 신청</ins></a></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

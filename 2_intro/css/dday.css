@@ -1,0 +1,47 @@
+#top{
+    position: relative;
+    top: 70%;
+    padding-top: 5%;
+    text-align: center;
+    font-size: 33px;
+    border-image: auto;
+    font-weight: 550;
+} 
+
+#heart{
+    color: red;
+    vertical-align: 1%;
+    font-size: 58px;
+}
+#today{
+    color:black;
+}
+#startDay{
+    color:black;
+}
+h2{ /*연애일수 글씨 */
+    margin:10px;
+    font-size: 33px;
+    text-align: center;
+}
+.days{
+    display: inline-block;
+    width: 145px;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: center; 
+}
+.days2{
+    display: inline-block;
+    width: 200px;
+    text-align: left;
+}
+
+
+@media screen and (max-width: 736px) and (orientation: portrait) {
+    .days{
+        font-size:1.1em;
+    }
+
+}

@@ -1,0 +1,24 @@
+{
+	"plugins": [],
+    "recurseDepth" : 10,
+
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "experimentalDecorators": true
+    },
+    "source" : {
+        "exclude": ["build","node_modules","library","local","temp","settings"],
+        "includePattern" : ".+\\.js(doc|x)?$",
+        "excludePattern" : "(node_modules|docs)"
+    },
+    "sourceType" : "module",
+    "tags": {
+        "allowUnknownTags": true
+    },
+
+    "opts": {
+        "encoding": "utf8",
+        "recurse" : true
+    }
+}

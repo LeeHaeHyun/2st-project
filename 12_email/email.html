@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact form example">
+  <title>찐해 관리자 Email 문의</title>
+  <link href="../0_login/img/pabi.png" rel="shortcut icon" type="image/x-icon">
+  <script src="/12_email/js/jquery.js"></script>
+</head>
+<style>
+  body {background: #bfbdb5;}
+  .content-head {margin-top: 100px; font-size: 30px; margin-bottom: 10px; font-weight: bold;}
+  aside {margin-bottom: 50px;}
+  aside p {font-size: 20px; text-decoration: underline; }
+  .form-elements {text-align: center; width: 100%;}
+  .input_area {margin-bottom:20px;}
+  .input_area p {font-size: 17px; font-weight: bold;}
+  .input_area input {padding: 10px 20px; }
+  .input_area input, textarea {
+    width: 80%;
+    border: none;
+    border: 2px solid #3b3b3b;
+    font-size: 17px;
+  }
+  #send_btn {background: #ececec; margin-top: 30px; padding: 20px 40px; font-weight: bold; border-radius: 10px; margin-bottom: 60px;}
+  footer {
+			width: 100%;
+			background: #9f9f9f;
+			color: #fff;
+			text-align: center;
+		}
+		footer p:first-child {
+			font-size: 30px;
+			padding-top: 40px;
+      
+		}
+		footer p:last-child {
+			font-size: 20px;
+			padding-bottom: 40px;
+			
+		}
+</style>
+
+<body>
+  <h2 class="content-head is-center" style="text-align: center;">개발자 문의하기!</h2>
+  <aside>
+       <p style="text-align: center;">
+           홈페이지에 대하여 <em>개발자</em>에게 전달할 말이나 </p>
+           <p style="text-align: center;"><b><em>요청사항</em> 등을 자유롭게 남겨주세요!</b>
+       </p>
+   </aside>
+ 
+   <!-- 시작 메인 부분 -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="haehyun930@gmail.com" target = iframe1
+  action="#">
+  
+    <!-- url -->
+
+    <div class="form-elements">
+      <div class="input_area">
+        <p>이름:</p>
+        <input id="name" name="이름" placeholder="이름(실명)을 입력해주세요."/>
+      </div>
+
+      <div class="input_area">
+        <p>전달할 메세지: </p>
+        <textarea id="send" name="전달" rows="10"
+        placeholder="전달할 말 또는 요청사항을 입력해주세요."></textarea>
+      </div>
+
+      <div class="input_area">
+        <p>(답변 받을) 이메일 주소:</p>
+        <input id="email" name="이메일" type="email" value=""
+        required placeholder="아이디@email.com"/>
+      </div>
+
+      <div class="input_area">
+        <p>(답변 받을) 연락처: </p>
+        <input id="number" name="연락처" placeholder="010-1234-5678" />
+      </div>
+
+      <div class="input_area honeypot-field">
+        <p>스팸 방지를 위해 항상 비워주세요! 입력하면 보내지지 않습니다.</p>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </div>
+
+      <button class="button-success pure-button button-xlarge" id="send_btn">
+        <i class="fa fa-paper-plane"></i>&nbsp;보내기</button>
+    </div>
+
+    <div class="thankyou_message" style="display:none;">
+      <h2 style="text-align: center;"><em>감사합니다! <br></em> 성공적으로 메일이 전송되었습니다.<br>
+        검토 후 빠른 답변 드리도록 하겠습니다!</h2>
+    </div>
+     <footer id="footer" style="font-size: 20px; color: black;">
+        <p>천생연분이 만난<br>찐한 이야기💕</p>
+        <p><a> &copy; kama_code 이해현 </a></p>
+      </footer>
+    </footer>
+  </form>
+
+  <!-- "AJAX" 스크립트 -->
+  <script data-cfasync="false" src="/12_email/js/form-submission-handler.js"></script> 
+  <iframe id="iframe1" name="iframe1" style="display:none"></iframe> 
+<!-- END -->
+
+</body>
+</html>

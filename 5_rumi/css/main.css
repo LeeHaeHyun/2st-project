@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&family=Song+Myung&display=swap');
+* {padding: 0; margin: 0;}
+body {
+    background: #111; color: #fff;
+    font-family: 'Song Myung', serif;
+}
+.title_area {
+    margin: 100px auto;
+    font-size: 30px;
+    text-align: center;
+}
+h1 > span {width: 50px;}
+.title {
+    margin-top:150px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Song Myung', serif;
+
+}
+.container-btn{
+    text-align: center;
+}
+
+.btn-rule{
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 10px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.btn-rule:hover{
+    font-weight: bold;
+    color : #ff14b1;
+    background-color: rgb(248, 248, 248);
+}
+
+.btn-start{
+    font-size: 20px;
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid rgb(204, 204, 204);
+    margin-bottom: 10px;
+    width: 200px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.btn-start:hover{
+    font-weight: bold;
+    color : #ff14b1;
+    background-color: rgb(248, 248, 248);
+}
+#footer {
+    background: #ccc;
+    margin-top: 150px;
+    text-align: center;
+    padding: 40px 0;
+    font-family: 'Noto Sans KR',sans-serif;
+}
+#footer p {color: #111;}
+#footer p:first-child {font-size: 30px;}
+#footer p:last-child {font-size: 20px;}
+
+@media (max-width: 390px) {
+    .title_area {
+        margin: 100px auto;
+        font-size: 20px;
+    }
+    h1 > span {width: 30px;}
+    .title {
+        margin-top:60px;
+        margin-bottom: 20px;
+        font-size: 25px;
+    
+    }
+    .gmae_title {font-size: 18px;}
+    .container-btn button{
+        font-size: 18px;
+    }
+    #footer {
+        background: #ccc;
+        margin-top: 100px;
+        padding: 30px 0;
+        font-family: 'Noto Sans KR',sans-serif;
+    }
+    #footer p {color: #111;}
+    #footer p:first-child {font-size: 20px;}
+    #footer p:last-child {font-size: 18px;}
+}

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>찐해:날씨 API 조회</title>
+        <!-- <link rel="stylesheet" href="css/style.css"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- <script src="../6_weather/js/script.js" defer></script> -->
+    </head>
+    <style>
+        body {
+            background: #c0e0ff;
+        }
+        .main_title {
+            background: #1e77cb;
+            width: 100%;
+            color: #fff;
+            height: 150px;
+            line-height: 150px;
+            font-size: 50px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+        }
+        .weather-input > h3 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 30%;
+            border: none;
+            border: 2px solid #1e77cb;
+        }
+        .search-btn {
+            margin-left: 10px;
+            background: #0e4579;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .location-btn {
+            margin-top: 50px;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .weather-data {
+            border: 2px solid #1e77cb;
+            width: 30%;
+            padding: 20px;
+            border-radius: 20px;
+            margin: 0 auto;
+        }
+        .details h2 {
+            font-size: 20px;
+        }
+        .details h6 {
+            font-size: 17px;
+        }
+
+        .days-forecast h2 {
+            margin-top: 50px;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .weather-cards li {
+            width: 20%;
+            float: left;
+            padding: 10px 20px;
+            border: 2px solid #1e77cb;
+            border-left: none;
+            margin-bottom: 100px;
+        }
+        .weather-cards li:first-child {
+            border-left: 2px solid #1e77cb;
+        }
+        .medio {
+            text-align: center;
+        }
+        iframe {
+            width: 390px;
+            height: 600px;
+            margin-bottom: 10px;
+        }
+        footer {
+            width: 100%;
+            background: #1e77cb;
+            color: #fff;
+            text-align: center;
+        }
+        footer p:first-child {
+            font-size: 30px;
+            padding-top: 40px;
+        }
+        footer p:last-child {
+            font-size: 20px;
+            padding-bottom: 40px;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            cityInput = document.querySelector(".city-input");
+            searchButton = document.querySelector(".search-btn");
+            locationButton = document.querySelector(".location-btn");
+            currentWeatherDiv = document.querySelector(".current-weather");
+            weatherCardsDiv = document.querySelector(".weather-cards");
+            locationButton.addEventListener("click", getUserCoordinates());
+            searchButton.addEventListener("click", getCityCoordinates());
+            cityInput.addEventListener("keyup", (e) => e.key === "Enter" && getCityCoordinates());
+        });
+    </script>
+    <body>
+        <h1 class="main_title">날씨 조회 API</h1>
+        <div class="container">
+            <div class="weather-input">
+                <h3>시 또는 구 또는 동을 입력해주세요.</h3>
+                <input
+                    class="city-input"
+                    id="name"
+                    type="text"
+                    placeholder="ex: 서울시 or 강서구 or 화곡동"
+                    style="text-align: center"
+                />
+                <button class="search-btn">날씨 검색</button>
+                <div class="separator"></div>
+                <button class="location-btn">[(모바일) 현위치 날씨조회(Click)]</button>
+            </div>
+            <div class="weather-data">
+                <div class="current-weather">
+                    <div class="details">
+                        <h2>_______ ( ______ )</h2>
+                        <h6>온도: __°C</h6>
+                        <h6>옷차림: ___</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="days-forecast">
+                <h2>5일간의 기상예보</h2>
+                <ul class="weather-cards">
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>온도: __C</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>온도: __C</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>온도: __C</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>온도: __C</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </li>
+                    <li class="card">
+                        <h3>( ______ )</h3>
+                        <h6>온도: __C</h6>
+                        <h6>바람: __ M/S</h6>
+                        <h6>습도: __%</h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="medio">
+            <img src="../6_weather/img/cloth.png" alt="" style="width: 390px" />
+            <iframe src="https://www.weather.go.kr/wgis-nuri/html/map.html"></iframe><br />
+            <iframe
+                src="https://embed.windy.com/embed2.html?lat=37.588&lon=126.909&detailLat=37.552&detailLon=127.543&width=370&height=400&zoom=9&level=surface&overlay=rain&product=ecmwf&menu=&message=&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1"
+                frameborder="1"
+            ></iframe>
+        </div>
+        <!-- Footer -->
+        <footer id="footer">
+            <p>천생연분이 만난<br />찐한 이야기💕</p>
+            <p><a> &copy; kama_code 이해현 </a></p>
+        </footer>
+    </body>
+</html>

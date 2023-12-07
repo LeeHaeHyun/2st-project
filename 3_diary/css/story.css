@@ -1,0 +1,50 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {margin: 0; padding: 0;}
+.ui-accordion .ui-accordion-content {
+    min-height: auto;
+}
+
+.main {
+    position: relative;
+    height: 50%;
+}
+.main img {
+    filter: brightness(0.6);
+    width: 100%; height: 100%;
+}
+.txt {
+    color: #fff;
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    text-align: center;
+}
+.txt h4 {
+    font-family: 'Gugi', cursive;
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.txt p {
+    font-family: 'Gugi', cursive;
+    padding: 5px 20px;
+    font-weight: 500;
+    background: #fff;
+    display: inline-block;
+    border-radius: 60px;
+    color: black;
+    font-size: 20px;
+}
+.accordion-area {
+    font-family: 'Noto Sans KR',sans-serif;
+    text-align: center;
+}
+
+.accordion-area h3 {
+    background: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+.accordion-area h3:hover {background: #025c21; color: #fff;}
+.accordion-area p {height: 100px;}
